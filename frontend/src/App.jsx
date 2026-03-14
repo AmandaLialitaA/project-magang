@@ -12,6 +12,8 @@ import Pengaturan from './components/Pengaturan.jsx';
 import './App.css';
 import './components/sidebar-layout.css';
 
+const API = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+
 function SidebarLayout({ activePage, onNavigate, onLogout, children }) {
     const { t } = useSettings();
 
@@ -71,7 +73,7 @@ export default function App() {
                 
                 // Verify token is still valid by calling API (non-blocking)
                 // Only logout if we get 401/403, ignore network errors to avoid false logouts
-                fetch('http://localhost:8000/api/profile', {
+                fetch(`${API}/profile`, {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json',
@@ -117,7 +119,7 @@ export default function App() {
     function handleLogout() {
         const token = localStorage.getItem('token');
         if (token) {
-            fetch('http://localhost:8000/api/auth/logout', {
+            fetch(`${API}/auth/logout`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
