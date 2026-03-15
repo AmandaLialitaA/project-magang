@@ -11,8 +11,7 @@ return new class extends Migration {
             $table->id('pangkat_id');
             $table->string('kode_pangkat', 20)->unique();
             $table->string('nama_pangkat', 50);
-            $table->enum('golongan', ['Perwira Tinggi', 'Perwira Menengah', 'Perwira Pertama', 'Bintara', 'Tamtama']);
-            $table->integer('urutan_pangkat');
+            $table->enum('golongan', ['Perwira Tinggi', 'Perwira Menengah', 'Perwira Pertama', 'Bintara', 'Tamtama', 'PNS']);            $table->integer('urutan_pangkat');
             $table->string('korps', 30)->nullable();
             $table->timestamps();
         });
