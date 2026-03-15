@@ -25,7 +25,7 @@ return new class extends Migration {
             $table->id('jabatan_id');
             $table->foreignId('personel_id')->constrained('personel', 'personel_id')->onDelete('cascade');
             $table->string('nama_jabatan', 100);
-            $table->foreignId('satker_id')->constrained('satuan_kerja', 'satker_id')->onDelete('restrict');
+            $table->foreignId('satker_id')->nullable()->constrained('satuan_kerja', 'satker_id')->onDelete('restrict');
             $table->string('pangkat_saat_itu', 30)->nullable();
             $table->date('tmt_mulai')->nullable();
             $table->date('tmt_selesai')->nullable();

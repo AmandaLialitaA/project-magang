@@ -10,7 +10,7 @@ import "./dashboard.css";
 
 // moved inside component because it needs access to t()
 
-const API = "http://localhost:8000/api";
+const API = import.meta.env.VITE_API_URL || "http://localhost:8000/api";
 const STORAGE_URL = import.meta.env.VITE_STORAGE_URL || "http://localhost:8000/storage";
 
 function authHeader() {
