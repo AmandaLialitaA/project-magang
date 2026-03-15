@@ -8,7 +8,7 @@ import autoTable from "jspdf-autotable";
 import { useSettings } from '../context/SettingsContext.jsx';
 import "./ProfilAkun.css";
 
-const API = "http://localhost:8000/api";
+const API = import.meta.env.VITE_API_URL || "http://localhost:8000/api";
 
 function authHeader() {
   return {
