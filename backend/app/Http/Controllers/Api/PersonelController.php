@@ -218,7 +218,9 @@ class PersonelController extends Controller
             $fotoPath = null;
             if ($request->hasFile('foto')) {
                 try {
-                    $fotoPath = $request->file('foto')->store('personel', 'public');
+                    // $fotoPath = $request->file('foto')->store('personel', 'public');
+                    $uploaded = cloudinary()->upload($request->file('foto')->getRealPath());
+                    $fotoPath = $uploaded->getSecurePath();
                 } catch (\Exception $e) {
                     $fotoPath = null; // lanjut tanpa foto
                 }
