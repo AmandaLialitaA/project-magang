@@ -9,11 +9,8 @@ import autoTable from "jspdf-autotable";
 import { useSettings } from '../context/SettingsContext.jsx';
 import "./PersonnelTracker.css";
 
-
-
-
-const API = "http://localhost:8000/api";
-const STORAGE_URL = "http://localhost:8000/storage";
+const API = import.meta.env.VITE_API_URL || "http://localhost:8000/api";
+const STORAGE_URL = import.meta.env.VITE_STORAGE_URL || "http://localhost:8000/storage";
 
 function authHeader() {
   return {
