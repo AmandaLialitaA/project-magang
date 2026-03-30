@@ -212,19 +212,19 @@ class PersonelController extends Controller
                 'pendidikan_lokasi' => 'nullable|string',
                 'pensiun_mulai' => 'nullable|date',
                 'lokasi_penempatan' => 'nullable|string',
-                'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+                'foto' => 'nullable',
             ]);
 
             $fotoPath = null;
-            if ($request->hasFile('foto')) {
-                try {
-                    // $fotoPath = $request->file('foto')->store('personel', 'public');
-                    $uploaded = cloudinary()->upload($request->file('foto')->getRealPath());
-                    $fotoPath = $uploaded->getSecurePath();
-                } catch (\Exception $e) {
-                    $fotoPath = null; // lanjut tanpa foto
-                }
-            }
+            // if ($request->hasFile('foto')) {
+            //     try {
+            //         // $fotoPath = $request->file('foto')->store('personel', 'public');
+            //         $uploaded = cloudinary()->upload($request->file('foto')->getRealPath());
+            //         $fotoPath = $uploaded->getSecurePath();
+            //     } catch (\Exception $e) {
+            //         $fotoPath = null; // lanjut tanpa foto
+            //     }
+            // }
 
             $personel = Personel::create([
                 'nrp' => $request->nrp,
